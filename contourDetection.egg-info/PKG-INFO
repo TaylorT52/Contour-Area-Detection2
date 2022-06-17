@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: contourDetection
+Version: 1.0.0
+Summary: Detects and draws boundaries around non-slide areas + compares to a threshold
+Home-page: https://github.com/TaylorT52/ContourAreaDetection
+Author: Taylor Tam
+Author-email: taylor@taylortam.com
+License: UNKNOWN
+Platform: UNKNOWN
+
+See README
+

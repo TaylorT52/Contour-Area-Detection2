@@ -1,0 +1,5 @@
+setup.py
+contourDetection.egg-info/PKG-INFO
+contourDetection.egg-info/SOURCES.txt
+contourDetection.egg-info/dependency_links.txt
+contourDetection.egg-info/top_level.txt
