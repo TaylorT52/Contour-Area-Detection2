@@ -7,9 +7,9 @@ import numpy as np
 
 
 class ContourDetection:
-    def __init__(self, path):
+    def __init__(self, path, min_percent=75.0):
         self.path = path
-        self.minPercent = 75.0
+        self.minPercent = min_percent
 
     # determines the percent that the contour occupies given contour-area and image
     def percent(self, contour_area, image):
@@ -17,7 +17,7 @@ class ContourDetection:
         image_area = height * width
         return (contour_area / image_area) * 100
 
-    def contouredArea(self):
+    def contoured_area(self, display_output):
         image = cv2.imread(self.path)
 
         # to grayscale
@@ -73,17 +73,18 @@ class ContourDetection:
                 max_contour = contours2[i]
 
         # only draw the MOST defined, long contour
-        #this contour is drawn on a copy of the image (img_copy) and then the original image is just image
+        # this contour is drawn on a copy of the image (img_copy) and then the original image is just image
         img_copy = image.copy()
 
         cv2.drawContours(img_copy, max_contour, -1, (0, 0, 255), 3)
-        cv2.imshow("Contours", img_copy)
-        cv2.imshow("Original", image)
-        cv2.waitKey(0)
+
+        if display_output:
+            cv2.imshow("Contours", img_copy)
+            cv2.imshow("Original", image)
+            cv2.waitKey(0)
 
         # find area of contour
         contour_area = cv2.contourArea(max_contour)
 
         # return if the percent of the contoured area is acceptable (above threshold) or not
         return self.percent(contour_area, image) > self.minPercent
-

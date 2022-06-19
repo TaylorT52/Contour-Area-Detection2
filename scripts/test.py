@@ -9,5 +9,5 @@ import contour_detection
 if __name__== "__main__":
     #acceptable true if contoured area > min percent, false if contoured area < min percent
     path = "../sample_images/test1.jpg"
-    detectionObj = contour_detection.ContourDetection(path)
-    acceptable = detectionObj.contouredArea()
+    detection_obj = contour_detection.ContourDetection(path)
+    acceptable = detection_obj.contoured_area(True)
