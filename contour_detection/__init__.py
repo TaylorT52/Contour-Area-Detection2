@@ -5,7 +5,8 @@
 import cv2
 import numpy as np
 
-class contourDetection:
+
+class ContourDetection:
     def __init__(self, path):
         self.path = path
         self.minPercent = 75.0
@@ -86,8 +87,3 @@ class contourDetection:
         # return if the percent of the contoured area is acceptable (above threshold) or not
         return self.percent(contour_area, image) > self.minPercent
 
-if __name__=="__main__":
-    #acceptable true if contoured area > min percent, false if contoured area < min percent
-    path = "test2.jpg"
-    detectionObj = contourDetection(path)
-    acceptable = detectionObj.contouredArea()
